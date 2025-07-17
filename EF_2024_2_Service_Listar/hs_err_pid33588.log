@@ -1,0 +1,255 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 264241152 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3825), pid=33588, tid=25564
+#
+# JRE version:  (17.0.9+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.9+8-b1166.2, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.4\lib\idea_rt.jar=60501:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.4\bin -Dfile.encoding=UTF-8 -agentpath:C:\Program Files\SentinelOne\Sentinel Agent 23.4.4.223\SentinelJava64.dll=extendedCapabilities com.example.demo_examenfinal_2024_2.DemoExamenFinal20241Application
+
+Host: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sun Jul  7 17:46:03 2024 Hora est. Pac�fico, Sudam�rica elapsed time: 0.030785 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001ec6c0ff220):  JavaThread "Unknown thread" [_thread_in_vm, id=25564, stack(0x000000aac0b00000,0x000000aac0c00000)]
+
+Stack: [0x000000aac0b00000,0x000000aac0c00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x688349]  os::platform_print_native_stack+0xd9  (os_windows_x86.cpp:235)
+V  [jvm.dll+0x841bfa]  VMError::report+0xc6a  (vmError.cpp:855)
+V  [jvm.dll+0x84383e]  VMError::report_and_die+0x78e  (vmError.cpp:1749)
+V  [jvm.dll+0x843ea3]  VMError::report_and_die+0x43  (vmError.cpp:1535)
+V  [jvm.dll+0x24bdef]  report_vm_out_of_memory+0x8f  (debug.cpp:321)
+V  [jvm.dll+0x6850f9]  os::pd_commit_memory_or_exit+0xc9  (os_windows.cpp:3833)
+V  [jvm.dll+0x67988a]  os::commit_memory_or_exit+0x2a  (os.cpp:1739)
+V  [jvm.dll+0x30cbfb]  G1PageBasedVirtualSpace::commit+0x19b  (g1PageBasedVirtualSpace.cpp:204)
+V  [jvm.dll+0x3140a6]  G1RegionsLargerThanCommitSizeMapper::commit_regions+0x96  (g1RegionToSpaceMapper.cpp:100)
+V  [jvm.dll+0x363ede]  HeapRegionManager::expand_any+0xee  (heapRegionManager.cpp:363)
+V  [jvm.dll+0x36410f]  HeapRegionManager::expand_by+0x7f  (heapRegionManager.cpp:380)
+V  [jvm.dll+0x2e29c8]  G1CollectedHeap::expand+0xb8  (g1CollectedHeap.cpp:1298)
+V  [jvm.dll+0x2e3934]  G1CollectedHeap::initialize+0x664  (g1CollectedHeap.cpp:1719)
+V  [jvm.dll+0x812771]  universe_init+0xb1  (universe.cpp:736)
+V  [jvm.dll+0x371d41]  init_globals+0x31  (init.cpp:124)
+V  [jvm.dll+0x7f12bc]  Threads::create_vm+0x60c  (thread.cpp:2909)
+V  [jvm.dll+0x3f59cf]  JNI_CreateJavaVM_inner+0x8f  (jni.cpp:3635)
+V  [jvm.dll+0x3f7601]  JNI_CreateJavaVM+0x11  (jni.cpp:3727)
+C  [InProcessClient64.dll+0x1567d0]
+C  [InProcessClient64.dll+0xf5d76]
+C  [InProcessClient64.dll+0xf5cd2]
+C  [jli.dll+0x528f]  JavaMain+0x113  (java.c:413)
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x4cc91]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffbf76bdf18, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001ec7c7308e0 GCTaskThread "GC Thread#0" [stack: 0x000000aac0c00000,0x000000aac0d00000] [id=15324]
+  0x000001ec6c14be90 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000aac0d00000,0x000000aac0e00000] [id=18176]
+  0x000001ec6c14d680 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000aac0e00000,0x000000aac0f00000] [id=8340]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbf6e73597]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001ec6c0f98d0] Heap_lock - owner thread: 0x000001ec6c0ff220
+
+Heap address: 0x0000000704000000, size: 4032 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000704000000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, committed 0K, reserved 0K
+  class space    used 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x000001ec738c0000,0x000001ec740a0000] _byte_map_base: 0x000001ec700a0000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000001ec6c14b7d0, (CMBitMap*) 0x000001ec6c14b810
+ Prev Bits: [0x000001ec74880000, 0x000001ec78780000)
+ Next Bits: [0x000001ec78780000, 0x000001ec7c680000)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.023 Loaded shared library D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6dd8f0000 - 0x00007ff6dd8fa000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\java.exe
+0x000001ec6a5b0000 - 0x000001ec6a7a8000 	C:\Windows\SYSTEM32\ntd1l.dll
+0x000001ec6a140000 - 0x000001ec6a1fd000 	C:\Windows\System32\kern3l32.dll
+0x00007ffc7e250000 - 0x00007ffc7e448000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc7dfc0000 - 0x00007ffc7e07d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc7bdb0000 - 0x00007ffc7c0a6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc7b350000 - 0x00007ffc7b681000 	C:\Program Files\SentinelOne\Sentinel Agent 23.4.4.223\InProcessClient64.dll
+0x00007ffc7d0c0000 - 0x00007ffc7d170000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc7d830000 - 0x00007ffc7d8ce000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc7e170000 - 0x00007ffc7e210000 	C:\Windows\System32\sechost.dll
+0x00007ffc7d170000 - 0x00007ffc7d293000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc7c100000 - 0x00007ffc7c127000 	C:\Windows\System32\bcrypt.dll
+0x00007ffc7bad0000 - 0x00007ffc7bbd0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc78bd0000 - 0x00007ffc78be7000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\jli.dll
+0x00007ffc782d0000 - 0x00007ffc782eb000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\VCRUNTIME140.dll
+0x00007ffc7d460000 - 0x00007ffc7d5ff000 	C:\Windows\System32\USER32.dll
+0x00007ffc5a7d0000 - 0x00007ffc5aa6a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffc7baa0000 - 0x00007ffc7bac2000 	C:\Windows\System32\win32u.dll
+0x00007ffc7e100000 - 0x00007ffc7e12b000 	C:\Windows\System32\GDI32.dll
+0x00007ffc7b910000 - 0x00007ffc7ba27000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc7bc80000 - 0x00007ffc7bd1d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc7b340000 - 0x00007ffc7b34a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc7b330000 - 0x00007ffc7b33b000 	C:\Windows\SYSTEM32\FLTLIB.DLL
+0x00007ffc7e130000 - 0x00007ffc7e15f000 	C:\Windows\System32\IMM32.DLL
+0x00007ffc782c0000 - 0x00007ffc782cc000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\vcruntime140_1.dll
+0x00007ffc4d8d0000 - 0x00007ffc4d95d000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\msvcp140.dll
+0x00007ffbf6b80000 - 0x00007ffbf7802000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\server\jvm.dll
+0x00007ffc7aaa0000 - 0x00007ffc7aaeb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffc60120000 - 0x00007ffc60129000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc7c820000 - 0x00007ffc7c88b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc677f0000 - 0x00007ffc67817000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc7a960000 - 0x00007ffc7a972000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffc79eb0000 - 0x00007ffc79ec2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffc77f00000 - 0x00007ffc77f0a000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\jimage.dll
+0x00007ffc798d0000 - 0x00007ffc79ab4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffc6e2d0000 - 0x00007ffc6e304000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffc7bd20000 - 0x00007ffc7bda2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc77ef0000 - 0x00007ffc77efe000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\instrument.dll
+0x00007ffc77220000 - 0x00007ffc77245000 	D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\java.dll
+0x00007ffc48f60000 - 0x00007ffc4900d000 	C:\Program Files\SentinelOne\Sentinel Agent 23.4.4.223\SentinelJava64.dll
+0x00007ffc7c890000 - 0x00007ffc7c8e5000 	C:\Windows\System32\SHLWAPI.dll
+0x00007ffc7d8d0000 - 0x00007ffc7d9fb000 	C:\Windows\System32\ole32.dll
+0x00007ffc7c370000 - 0x00007ffc7c6c3000 	C:\Windows\System32\combase.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin;C:\Windows\SYSTEM32;C:\Program Files\SentinelOne\Sentinel Agent 23.4.4.223;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;D:\Users\diaz.oa\.jdks\jbr-17.0.9\bin\server
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.4\lib\idea_rt.jar=60501:C:\Program Files\JetBrains\IntelliJ IDEA 2023.2.4\bin -Dfile.encoding=UTF-8 -agentpath:C:\Program Files\SentinelOne\Sentinel Agent 23.4.4.223\SentinelJava64.dll=extendedCapabilities 
+java_command: com.example.demo_examenfinal_2024_2.DemoExamenFinal20241Application
+java_class_path (initial): D:\Users\diaz.oa\Documents\IoT-2024-1\Desarrollo\Demo_ExamenFinal_2024_1\target\classes;D:\Users\diaz.oa\.m2\repository\org\springframework\cloud\spring-cloud-starter-netflix-eureka-client\4.1.2\spring-cloud-starter-netflix-eureka-client-4.1.2.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\cloud\spring-cloud-starter\4.1.3\spring-cloud-starter-4.1.3.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\cloud\spring-cloud-context\4.1.3\spring-cloud-context-4.1.3.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\security\spring-security-crypto\6.3.1\spring-security-crypto-6.3.1.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\cloud\spring-cloud-commons\4.1.3\spring-cloud-commons-4.1.3.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\security\spring-security-rsa\1.1.3\spring-security-rsa-1.1.3.jar;D:\Users\diaz.oa\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.78\bcprov-jdk18on-1.78.jar;D:\Users\diaz.oa\.m2\repository\org\springframework\cloud\spring-cloud-netflix-eureka-client\4.1.2\spring-cloud-netflix-eureka-client-4.1.2.jar;D:\Users\diaz.oa\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.3.1\httpclient5-5.3.1.jar;D:\Users\diaz.oa\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2.4\httpcore5-5.2.4.jar;D:\Users\diaz.oa\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2.4\httpcore5-h2-5.2.4.jar;D:\Users\diaz.oa\.m2\repository\com\netflix\eureka\eureka-client\2.0.2\eureka-client-2.0.2.jar;D:\Users\diaz.oa\.m2\repository\com\netflix\netflix-commons\netflix-eventbus\0.3.0\netflix-eventbus-0.3.0.jar;D:\Users\diaz.oa\.m2\repository\com\netflix\netflix-commons\netflix-infix\0.3.0\netflix-infix-0.3.0.jar;D:\Users\diaz.oa\.m2\repository\commons-jxpath\commons-jxpath\1.3\commons-jxpath-1.3.jar;D:\Users\diaz.oa\.m2\repository\joda-time\joda-time\2.3\joda-time-2.3.jar;D:\Users\diaz.oa\.m2\repository\org\antlr\antlr-runtime\3.4\antlr-runtime-3.4.jar;D:\Users\diaz.oa\.m2\repository\
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 264241152                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4227858432                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4227858432                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files\R\RSuiteCLI\;c:\centuraprod;C:\Oracle12c\product\12.2.0\client_1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\instantclient12_odbc;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Users\diaz.oa\AppData\Local\Microsoft\WindowsApps;;D:\Users\diaz.oa\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.3\bin;;D:\Users\diaz.oa\AppData\Roaming\npm
+USERNAME=diaz.oa
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+TMP=D:\Users\diaz.oa\AppData\Local\Temp
+TEMP=D:\Users\diaz.oa\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 24 days 1:51 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 140 stepping 1 microcode 0xb4, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, clwb, avx512_vbmi2, avx512_vbmi, hv
+Processor Information for all 8 processors :
+  Max Mhz: 1690, Current Mhz: 1690, Mhz Limit: 1690
+
+Memory: 4k page, system-wide physical 16126M (675M free)
+TotalPageFile size 41737M (AvailPageFile size 175M)
+current process WorkingSet (physical memory assigned to process): 45M, peak: 45M
+current process commit charge ("private bytes"): 85M, peak: 311M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.9+8-b1166.2) for windows-amd64 JRE (17.0.9+8-b1166.2), built on 2024-01-13 by "builduser" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
